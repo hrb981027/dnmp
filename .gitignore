@@ -3,3 +3,5 @@
 www/*
 mariadb/data/*
 mariadb/log/*
+nginx/conf.d/certs/*
+nginx/log/*
