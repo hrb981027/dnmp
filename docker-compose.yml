@@ -1,0 +1,19 @@
+version: "3"
+services:
+  mariadb:
+    build:
+      context: ./mariadb
+      args:
+        MARIADB_VERSION: ${MARIADB_VERSION}
+    ports:
+      - "${MYSQL_HOST_PORT}:3306"
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./mariadb/mariadb.cnf:/etc/mysql/conf.d/mariadb.cnf:ro
+      - ./mariadb/data/:/var/lib/mysql/:rw
+      - ./mariadb/log/:/var/log/mysql/:rw
+    restart: always
+    networks:
+      - default
+    environment:
+      MYSQL_ROOT_PASSWORD: "${MYSQL_ROOT_PASSWORD}"

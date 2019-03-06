@@ -1,2 +1,5 @@
 .idea
+.env
 www/*
+mariadb/data/*
+mariadb/log/*
