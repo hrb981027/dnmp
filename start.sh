@@ -7,4 +7,5 @@ chown -R 101:101 ./nginx/log
 chown -R 33:33   ./php-fpm/log
 
 #启动容器
+docker-compose build
 docker-compose up -d
