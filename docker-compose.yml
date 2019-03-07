@@ -1,4 +1,4 @@
-version: "3"
+version: "2"
 services:
   mariadb:
     build:
@@ -30,7 +30,7 @@ services:
       - /etc/localtime:/etc/localtime:ro
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
       - ./nginx/conf.d/:/etc/nginx/conf.d/:rw
-      - ./www/:/var/www/html/:rw
+      - ${WWW_DIR}:/var/www/html/:rw
 
     restart: always
     networks:
@@ -43,7 +43,7 @@ services:
         PHP_VERSION: ${PHP_VERSION}
     volumes:
       - /etc/localtime:/etc/localtime:ro
-      - ./www/:/var/www/html/:rw
+      - ${WWW_DIR}:/var/www/html/:rw
       - ./php-fpm/php.ini:/usr/local/etc/php/php.ini:ro
       - ./php-fpm/php-fpm.conf:/usr/local/etc/php-fpm.d/www.conf:ro
       - ./php-fpm/log/:/var/log/php/:rw
